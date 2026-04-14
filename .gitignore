@@ -1,0 +1,37 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Sensitive code - DO NOT COMMIT
+core/
+logic/
+strikes/
+launchers/
+scripts_for_jonathon/
+blueprints/
+swarm_directions/
+
+# Private data & logs
+*.log
+error.log
+reports/
+documents/grants/
+documents/emails/
+
+# Vault & memory (if any)
+VAULT/
+memories/
+
+# Environment & secrets
+.env
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
