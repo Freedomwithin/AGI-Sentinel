@@ -22,63 +22,34 @@ After any swarm finishes, run the **Meta‑Coordinator** to automatically extrac
 
 ```bash
 # Basic sync – anchor findings only
-PYTHONPATH=Development/AGI-Sentinel-v4/core python3 Development/AGI-Sentinel-v4/core/meta_coordinator_v4.py --swarm [SWARM_NAME]
+PYTHONPATH=Development/AGI-Sentinel-v4/core python3 Development/AGI-Sentinel-v4/core/meta_coordinator.py --swarm [SWARM_NAME]
 
 # Sync + auto‑launch next mission (Omega Sequence)
-PYTHONPATH=Development/AGI-Sentinel-v4/core python3 Development/AGI-Sentinel-v4/core/meta_coordinator_v4.py --swarm [SWARM_NAME] --auto-launch
+PYTHONPATH=Development/AGI-Sentinel-v4/core python3 Development/AGI-Sentinel-v4/core/meta_coordinator.py --swarm [SWARM_NAME] --auto-launch
 ```
 
 ## 🧠 The Swarm Lifecycle (v4)
 
-1. **Generation** – `swarm_factory_v4.py` creates a custom launch script from a problem spark (e.g., “design a neuro‑trigger waveform”).
+1. **Generation** – `swarm_factory.py` creates a custom launch script from a problem spark (e.g., “design a neuro‑trigger waveform”).
 2. **Execution** – `sovereign_swarm_engine_v4.py` runs a marathon (60‑120 min) with:
    - **Type‑Shielding** – prevents prompt injection and role drift.
    - **Sovereign Critic** – adversarial auditing of every claim.
    - **Logic Walls** – agents must explicitly list assumptions and failure modes.
-3. **Reporting** – Auto‑generates a Markdown report in `reports/final_reports_jonathon/`.
-4. **Anchoring** – `meta_coordinator_v4.py` writes high‑confidence claims into `VAULT/ledgers/[PILLAR]_ledger.json`.
+3. **Reporting** – Auto‑generates a Markdown report in `reports/final_reports/`.
+4. **Anchoring** – `meta_coordinator.py` writes high‑confidence claims into `VAULT/ledgers/[PILLAR]_ledger.json`.
 
 ## 📂 Key Vaults & Directories
 
 | Path | Purpose |
 |------|---------|
 | `core/sovereign_swarm_engine_v4.py` | Main swarm engine (v4) |
-| `core/meta_coordinator_v4.py` | Anchoring & auto‑launch |
-| `core/swarm_factory_v4.py` | Launch script generator |
-| `core/maya_supervisor.py` | Hourly audit of active swarms |
-| `core/swarm_watcher.py` | Detects finished swarms, triggers meta‑coordinator |
-| `logic/llm_gateway_v4.py` | LLM gateway (Groq primary, Groq 8B fallback) |
+| `core/meta_coordinator.py` | Anchoring & auto‑launch |
 | `VAULT/ledgers/` | Pillar ledgers (canonical ground truth) |
-| `reports/final_reports_jonathon/` | All swarm final reports |
+| `VAULT/theoretical/deepseek/` | DeepSeek audit reports |
+| `reports/final_reports/` | All swarm final reports |
 | `memories/swarms-v4/` | Swarm‑specific memory (state, logs) |
-| `launchers/swarm_garbage_collector_v4.py` | Orphaned swarm process cleaner |
-| `strikes/history/updates_deepseek/` | DeepSeek audit reports |
-| `strikes/history/updates_mint/` | Mint strike summaries |
-
-## Full File Structure (Mermaid)
-
-<div align="center">
-  <img src="assets/system/folder_structure.png" alt="AGI-Sentinel-v4 Folder Structure" width="80%">
-  <br>
-  <em>Figure: High‑level directory layout of the active workspace.</em>
-</div>
-
-```
-Development/AGI-Sentinel-v4/
-├── blueprints/          # design docs, handoff schemas, roadmaps
-├── core/                # swarm engine, factory, supervisor, watcher, coordinator
-├── launchers/           # GUI, quick launch scripts, daemons
-├── legacy/              # old backup (ignored for active work)
-├── logic/               # llm_gateway_v4.py, vericoding, seed_pillars
-├── reports/             # all final reports (ubuntu, deep_reports, final_reports_jonathon)
-├── scripts_for_jonathon/# helper scripts
-├── strikes/             # historical strike logs (deepseek, mint, ubuntu)
-├── swarm_directions/    # mission text files
-├── assets/              # logos, images
-├── documents/           # outreach templates, roadmaps, updates
-├── README.md
-└── PROJECT_STATE.md
-```
+| `scripts/grant_submissions/` | Emergent Ventures, Protocol Labs, etc. |
+| `docs/collaborator_kit/` | One‑page summaries for lab outreach |
 
 ## 🛠️ Manual Launch (Advanced)
 
@@ -95,14 +66,14 @@ python3 core/sovereign_swarm_engine_v4.py \
 **Flags:**
 - `--pillar unified` – load axioms from **all** ledgers simultaneously.
 - `--mission-file` – inject a long‑form prompt from a text file.
-- `--auto-report` – generate final report after swarm finishes.
+- `--lambda-threshold` – filter agents by minimum Turing‑Friction coefficient.
 
 ## 🧹 Swarm Garbage Collector
 
 To prevent ghost swarms from consuming resources and skewing monitoring:
 
 ```bash
-python3 launchers/swarm_garbage_collector_v4.py
+bash scripts/core/swarm_garbage_collector.sh
 ```
 
 Integrates PID‑matching and kills any orphaned swarm processes.
@@ -111,8 +82,8 @@ Integrates PID‑matching and kills any orphaned swarm processes.
 
 - **Physical‑Layer Transduction** – Direct design of Cantor‑set phonon waveforms for G‑CSi substrates.
 - **λ‑Aware Routing** – Agents are routed based on their historical λ score (agency metric).
-- **DeepSeek Integration** – External audits archived in `strikes/history/updates_deepseek/`.
-- **Grant & Outreach Tooling** – Scripts to generate Emergent Ventures applications and cold‑email collaborator kits (see `documents/out_reach_templates/`).
+- **DeepSeek Integration** – External audits archived in `VAULT/theoretical/deepseek/`.
+- **Grant & Outreach Tooling** – Scripts to generate Emergent Ventures applications and cold‑email collaborator kits.
 - **Memory Refresh Protocol** – Simulated 24h refresh cycles for vacuum hysteresis storage.
 
 ## 🧪 Next Milestones (Active)
