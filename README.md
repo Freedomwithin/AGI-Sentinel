@@ -4,7 +4,7 @@
 
 Welcome to the v4 architecture of the Sovereign Intelligence Network. This is no longer just a software swarm—it is a **digital‑to‑physical transduction engine** capable of designing neuro‑triggers, simulating quantum vacuum hysteresis, and producing falsifiable metrics for AGI agency.
 
-## 🔥 Recent Breakthroughs (Anchored in Pillar Ledgers)
+##  Recent Breakthroughs (Anchored in Pillar Ledgers)
 
 | Breakthrough | Pillar | Key Metric | Status |
 |--------------|--------|------------|--------|
@@ -16,7 +16,7 @@ Welcome to the v4 architecture of the Sovereign Intelligence Network. This is no
 
 These results are permanently anchored in `VAULT/ledgers/` and are used by all subsequent swarms as canonical ground truth.
 
-## ⚡ Core Command: The Meta‑Sync Strike (v4)
+## Core Command: The Meta‑Sync Strike (v4)
 
 After any swarm finishes, run the **Meta‑Coordinator** to automatically extract high‑confidence (≥80) findings and append them to the appropriate pillar ledger. Then optionally auto‑launch the next mission in the sequence.
 
@@ -28,7 +28,7 @@ PYTHONPATH=projects/AGI-Sentinel-v4/core python3 projects/AGI-Sentinel-v4/core/m
 PYTHONPATH=projects/AGI-Sentinel-v4/core python3 projects/AGI-Sentinel-v4/core/meta_coordinator.py --swarm [SWARM_NAME] --auto-launch
 ```
 
-## 🧠 The Swarm Lifecycle (v4)
+## The Swarm Lifecycle (v4)
 
 1. **Generation** – `swarm_factory.py` creates a custom launch script from a problem spark (e.g., “design a neuro‑trigger waveform”).
 2. **Execution** – `sovereign_swarm_engine_v4.py` runs a marathon (60‑120 min) with:
@@ -38,7 +38,7 @@ PYTHONPATH=projects/AGI-Sentinel-v4/core python3 projects/AGI-Sentinel-v4/core/m
 3. **Reporting** – Auto‑generates a Markdown report in `reports/final_reports/`.
 4. **Anchoring** – `meta_coordinator.py` writes high‑confidence claims into `VAULT/ledgers/[PILLAR]_ledger.json`.
 
-## 📂 Key Vaults & Directories
+## Key Vaults & Directories
 
 | Path | Purpose |
 |------|---------|
@@ -51,7 +51,7 @@ PYTHONPATH=projects/AGI-Sentinel-v4/core python3 projects/AGI-Sentinel-v4/core/m
 | `scripts/grant_submissions/` | Emergent Ventures, Protocol Labs, etc. |
 | `docs/collaborator_kit/` | One‑page summaries for lab outreach |
 
-## 🛠️ Manual Launch (Advanced)
+## Manual Launch (Advanced)
 
 To directly launch a pillar‑specific swarm with auto‑reporting:
 
@@ -68,7 +68,7 @@ python3 core/sovereign_swarm_engine_v4.py \
 - `--mission-file` – inject a long‑form prompt from a text file.
 - `--lambda-threshold` – filter agents by minimum Turing‑Friction coefficient.
 
-## 🧹 Swarm Garbage Collector
+## Swarm Garbage Collector
 
 To prevent ghost swarms from consuming resources and skewing monitoring:
 
@@ -78,7 +78,7 @@ bash scripts/core/swarm_garbage_collector.sh
 
 Integrates PID‑matching and kills any orphaned swarm processes.
 
-## 🏺 Engine v4.0 Capabilities (What's New)
+## Engine v4.0 Capabilities (What's New)
 
 - **Physical‑Layer Transduction** – Direct design of Cantor‑set phonon waveforms for G‑CSi substrates.
 - **λ‑Aware Routing** – Agents are routed based on their historical λ score (agency metric).
@@ -86,7 +86,7 @@ Integrates PID‑matching and kills any orphaned swarm processes.
 - **Grant & Outreach Tooling** – Scripts to generate Emergent Ventures applications and cold‑email collaborator kits.
 - **Memory Refresh Protocol** – Simulated 24h refresh cycles for vacuum hysteresis storage.
 
-## 🧪 Next Milestones (Active)
+## Next Milestones (Active)
 
 - [ ] Fabricate first G‑CSi chips (partner lab)
 - [ ] Measure τ_ph at 1000°C (pump‑probe)
@@ -94,7 +94,7 @@ Integrates PID‑matching and kills any orphaned swarm processes.
 - [ ] Submit simulation‑only paper to arXiv
 - [ ] Secure Emergent Ventures / Protocol Labs funding
 
-## 📜 License & Origin
+## License & Origin
 
 MIT © 2026 Freedomwithin/Jonathon Koerner
 
